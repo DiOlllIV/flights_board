@@ -1,0 +1,131 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+  outline: none;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.main {
+  background-color: rgba(90, 130, 160, 0.1);
+  width: #{100vw};
+  height: #{100vh};
+  display: flex;
+  flex-direction: column;
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+  margin: auto 10%;
+
+  &__title {
+    margin: 0 auto 10% 10%;
+    font-weight: 300;
+    font-size: 64px;
+    font-family: 'Quicksand', sans-serif;
+    text-transform: uppercase;
+  }
+
+  &__box {
+    display: flex;
+  }
+
+  &__input {
+    margin: auto 0 auto 10%;
+    height: 4em;
+    width: 100%;
+    text-align: center;
+    border: none;
+    font-weight: 700;
+    color: rgb(100, 100, 100);
+    box-shadow: 0px 0px 10px -2px rgba(128,128,128,1);
+    cursor: pointer;
+  }
+
+  &__btn {
+    margin: auto 0;
+    width: 30%;
+    height: 4em;
+    border: none;
+    border-radius: 0 50px 0 0;
+    background-color: rgb(120, 160, 250);
+    box-shadow: 0px 0px 10px -2px rgba(128,128,128,1);
+    text-transform: uppercase;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+  }
+}
+
+.board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  border-radius: 50px 50px 0 0;
+  box-shadow: 0px 0px 10px -2px rgba(128,128,128,1);
+
+  &__box {
+    margin: auto 5%;
+    }
+
+  &__table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: auto;
+
+    &-description{
+      margin: auto;
+      height: 4em;
+      width: 100%;
+      background: #fff;
+      padding: 5%;
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+}
+
+.btn-section {
+  background-color: rgb(120, 160, 250);
+  border-radius: 50px 50px 0 0;
+}
+
+.board-btn{
+    margin: auto 0;
+    width: 50%;
+    height: 4em;
+    border: none;
+    background-color: rgb(120, 160, 250);
+    text-transform: uppercase;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    &__right{
+      border-radius: 0 50px 0 0;
+    }
+    &__left{
+      border-radius: 50px 0 0 0;
+    }
+  }
+
+  .clicked {
+    color: rgb(120, 160, 250);
+    background-color: rgb(255, 255, 255);
+    border-radius: 50px 50px 0 0;
+  }
+
+.table-list {
+  margin: auto;
+  width: 52em;
+  &__item {
+    margin: auto;
+
+  }
+}
+
+
