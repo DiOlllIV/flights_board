@@ -3,8 +3,7 @@ import { ARRIVAL_LIST_RECEVEID } from './board.actions';
 
 
 const initialState = {
-    arrivals: [],
-    departures: [],
+    flightsList: [],
 };
 
 const boardReducer = (state = initialState, action) => {
@@ -12,14 +11,14 @@ const boardReducer = (state = initialState, action) => {
         case DEPARTURE_LIST_RECEIVED: {
             return {
                 ...state,
-                departures: action.payload.departures,
+                flightsList: action.payload.departure,
             };
         }
 
         case ARRIVAL_LIST_RECEVEID: {
             return {
                 ...state,
-                arrivals: action.payload.arrivals,
+                flightsList: action.payload.arrival,
             };
         }
 

@@ -1,5 +1,4 @@
 import { fetchFlightsList } from './board.gateway';
-import { boardListSelector } from './board.selectors';
 
 export const DEPARTURE_LIST_RECEIVED = 'BOARD/DEPARTURE_LIST_RECEIVED';
 export const ARRIVAL_LIST_RECEVEID = 'BOARD/ARRIVAL_LIST_RECEVEID';
@@ -17,11 +16,31 @@ export const departureListReceived = departure => {
 
 export const arrivalListReceived = arrival => {
     const action = {
-        type: DEPARTURE_LIST_RECEIVED,
+        type: ARRIVAL_LIST_RECEVEID,
         payload: {
             arrival,
         },
     };
     
     return action;
+};
+
+export const getArrivalList = () => {
+    const thunkAction = function(dispatch) {
+        fetchFlightsList()
+            .then(data => 
+                dispatch(arrivalListReceived(data.body.arrival)));
+    };
+
+    return thunkAction;
+};
+
+export const getDepartureList = () => {
+    const thunkAction = function(dispatch) {
+        fetchFlightsList()
+            .then(data => 
+                dispatch(departureListReceived(data.body.departure)));
+    };
+
+    return thunkAction;
 };

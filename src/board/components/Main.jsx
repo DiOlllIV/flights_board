@@ -2,14 +2,11 @@ import React from 'react';
 import Search from './Search';
 import Board from './Board';
 
-const Main = (props) => {
+const Main = () => {
     return (
         <main className="main">
             <Search />
-            <Board data={props.data}
-                arrivals={props.arrivals}
-                departures={props.departures}
-            />
+            <Board />
         </main>
     );
 };
