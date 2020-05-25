@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as boardActions from '../board.actions';
 import * as boardSelectors from '../board.selectors';
+import BoardBtns from './BoardBtns';
+import TableDescrptn from './TableDescrptn';
+import TableList from './TableList';
 
 class Board extends Component {
 
@@ -20,52 +23,21 @@ class Board extends Component {
 
     render() {
         console.log(this.props.flightsList);
-        
+
         return (
             <div className="board">
-                <div className='board__box'>
-                    <div className="btn-section">
-                        <button className="board-btn board-btn__left"
-                            onClick={() => this.handleChangeDepartures()}
-                        >
-                            Departures
-                        </button>
-                        <button className="board-btn board-btn__right clicked"
-                            onClick={this.handleChangeArrivals}
-                        >
-                            Arrivals
-                        </button>
-                    </div>
-
+                <BoardBtns 
+                    arrivalClick={this.props.arrivalClick}
+                    departureClick={this.props.departureClick}
+                    handleChangeDepartures={this.handleChangeDepartures}
+                    handleChangeArrivals={this.handleChangeArrivals}
+                />
                     <div className="board__table">
-                        <div className="board__table description">
-                            <span className="description__terminal">Termimal</span>
-                            <span className="description__time">Local time</span>
-                            <span className="description__destination">Destination</span>
-                            <span className="description__status">Status</span>
-                            <span className="description__airline">Airline</span>
-                            <span className="description__flight">Flight</span>
-                        </div>
-                        <ul className="table-list">
-                            {this.props.flightsList.map(item => 
-                                (
-                                    <li className="table-list__item">
-                                        <span className="description__terminal">{item.term}</span>
-                                        <span className="description__time">{new Date(item.actual).getHours()}:{new Date(item.actual).getMinutes()}</span>
-                                        <span className="description__destination">{item["airportFromID.name_en"] || item["airportToID.name_en"]}</span>
-                                        <span className="description__status">{item.status}</span>
-                                        <span className="description__airline">
-                                            <img type="logo"
-                                                className="logo"
-                                                src={`${item.airline.en.logoName}`} />
-                                            {item.airline.en.name}
-                                        </span>
-                                        <span className="description__flight">{item.codeShareData[0].codeShare}</span>
-                                    </li>
-                                ))}
-                        </ul>
-                    </div>
-                </div>
+                        <TableDescrptn />
+                        <TableList 
+                            flightsList={this.props.flightsList}
+                        />
+                    </div>  
             </div>
         );
     }
@@ -80,6 +52,8 @@ const mapDispatch = {
 const mapState = state => {
     return {
         flightsList: boardSelectors.boardListSelector(state),
+        arrivalClick: boardSelectors.boardArrivalClick(state),
+        departureClick: boardSelectors.boardDepartureClick(state),
     }
 }
 

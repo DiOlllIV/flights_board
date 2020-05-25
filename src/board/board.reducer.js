@@ -4,6 +4,8 @@ import { ARRIVAL_LIST_RECEVEID } from './board.actions';
 
 const initialState = {
     flightsList: [],
+    arrivalClick: false,
+    departureClick: false,
 };
 
 const boardReducer = (state = initialState, action) => {
@@ -12,6 +14,8 @@ const boardReducer = (state = initialState, action) => {
             return {
                 ...state,
                 flightsList: action.payload.departure,
+                arrivalClick: false,
+                departureClick: true,
             };
         }
 
@@ -19,6 +23,8 @@ const boardReducer = (state = initialState, action) => {
             return {
                 ...state,
                 flightsList: action.payload.arrival,
+                arrivalClick: true,
+                departureClick: false,
             };
         }
 
