@@ -4,7 +4,10 @@ import * as boardActions from '../board.actions';
 import * as boardSelectors from '../board.selectors';
 
 class Board extends Component {
- 
+
+    componentDidMount() {
+        this.props.getArrivalList();
+    }
 
     handleChangeArrivals = () => {
         this.props.getArrivalList();
@@ -16,7 +19,8 @@ class Board extends Component {
     }
 
     render() {
-        console.log(this.props);
+        console.log(this.props.flightsList);
+        
         return (
             <div className="board">
                 <div className='board__box'>
@@ -48,7 +52,7 @@ class Board extends Component {
                                     <li className="table-list__item">
                                         <span className="description__terminal">{item.term}</span>
                                         <span className="description__time">{new Date(item.actual).getHours()}:{new Date(item.actual).getMinutes()}</span>
-                                        <span className="description__destination">{item["airportFromID.name_en"]}</span>
+                                        <span className="description__destination">{item["airportFromID.name_en"] || item["airportToID.name_en"]}</span>
                                         <span className="description__status">{item.status}</span>
                                         <span className="description__airline">
                                             <img type="logo"
