@@ -10,6 +10,7 @@ class Board extends Component {
 
     componentDidMount() {
         this.props.getArrivalList();
+        console.log(this.props.flightsList)
     }
 
     handleChangeArrivals = () => {
@@ -51,7 +52,7 @@ const mapDispatch = {
 
 const mapState = state => {
     return {
-        flightsList: boardSelectors.boardListSelector(state),
+        flightsList: boardSelectors.filteredFlightsSelector(state),
         arrivalClick: boardSelectors.boardArrivalClick(state),
         departureClick: boardSelectors.boardDepartureClick(state),
     }

@@ -1,7 +1,10 @@
-const baseUrl = 'https://api.iev.aero/api/flights/10-02-2020';
+import { getDate } from './addFunctions';
+
+const baseUrl = 'https://api.iev.aero/api/flights';
+const date = getDate(new Date);
 
 export const fetchFlightsList = () => 
-    fetch(baseUrl)
+    fetch(`${baseUrl}/${date}`)
         .then(response => {
             if(response.ok)
                 return response.json();

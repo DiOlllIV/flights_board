@@ -1,20 +1,24 @@
 import React from 'react';
+import { setTime, green, blue } from '../addFunctions';
 
 const TableList = ({flightsList}) => (
     <ul className="table-list">
-        {flightsList.map(item => 
-            (
+        {flightsList.map(item => {
+            const colorStyle = (item.terminal === 'A') ? green : blue; 
+
+            return (
                 <li className="table-list__item"
-                    key={item.ID}
+                    key={item.id}
                 >
                     <span className="description__terminal">
-                        {item.term}
+                        <span className="item"
+                            style={colorStyle}>{item.terminal}</span>
                     </span>
                     <span className="description__time">
-                        {new Date(item.actual).getHours()}:{new Date(item.actual).getMinutes()}
+                        {setTime(item.localTime)}
                     </span>
                     <span className="description__destination">
-                        {item["airportFromID.name_en"] || item["airportToID.name_en"]}
+                        {item.destination}
                     </span>
                     <span className="description__status">
                         {item.status}
@@ -22,14 +26,15 @@ const TableList = ({flightsList}) => (
                     <span className="description__airline">
                         <img type="logo"
                             className="logo"
-                            src={`${item.airline.en.logoName}`} />
-                        {item.airline.en.name}
+                            src={`${item.airlineLogo}`} />
+                        {item.airlineName}
                     </span>
                     <span className="description__flight">
-                        {item.codeShareData[0].codeShare}
+                        {item.flight}
                     </span>
                 </li>
-            ))}
+            )}
+        )}
     </ul>
 );
 
