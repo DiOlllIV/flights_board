@@ -1,28 +1,28 @@
-export const setTime = time => {
+export const setTime = (time) => {
+  const hours =
+    new Date(time).getHours() < 10
+      ? `0${new Date(time).getHours()}`
+      : new Date(time).getHours();
+  const minutes =
+    new Date(time).getMinutes() < 10
+      ? `0${new Date(time).getMinutes()}`
+      : new Date(time).getMinutes();
 
-    const hours = new Date(time).getHours() < 10 ? 
-        `0${new Date(time).getHours()}` : 
-        new Date(time).getHours();
-    const minutes = new Date(time).getMinutes() < 10 ? 
-        `0${new Date(time).getMinutes()}`: 
-        new Date(time).getMinutes();
-
-    return `${hours}:${minutes}`;
+  return `${hours}:${minutes}`;
 };
 
-export const getDate = date => {
+export const getDate = (date) => {
+  const day = new Date(date).getDate();
+  const month = new Date(date).getMonth();
+  const year = new Date(date).getFullYear();
 
-    const day = new Date(date).getDate();
-    const month = new Date(date).getMonth();
-    const year = new Date(date).getFullYear();
-
-    return `${day}-${month}-${year}`;
+  return `${day}-${month}-${year}`;
 };
 
 export const green = {
-    color: `rgba(30, 190, 30, 0.8)`,
+  color: `rgba(30, 190, 30, 0.8)`,
 };
 
 export const blue = {
-    color: `rgba(70, 70, 220, 0.842)`,
+  color: `rgba(70, 70, 220, 0.842)`,
 };

@@ -1,61 +1,58 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import * as boardActions from '../board.actions';
-import * as boardSelectors from '../board.selectors';
-import BoardBtns from './BoardBtns';
-import TableDescrptn from './TableDescrptn';
-import TableList from './TableList';
+import React, { useEffect } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import * as boardActions from "../board.actions";
+import * as boardSelectors from "../board.selectors";
+import BoardBtns from "./BoardBtns";
+import TableDescrptn from "./TableDescrptn";
+import TableList from "./TableList";
 
-class Board extends Component {
+const Board = ({
+  flightsList,
+  arrivalClick,
+  departureClick,
+  getArrivalList,
+  getDepartureList,
+}) => {
+  useEffect(() => {
+    getArrivalList();
+  }, []);
 
-    componentDidMount() {
-        this.props.getArrivalList();
-        console.log(this.props.flightsList)
-    }
-
-    handleChangeArrivals = () => {
-        this.props.getArrivalList();
-    }  
-    
-
-    handleChangeDepartures = () => {
-        this.props.getDepartureList();
-    }
-
-    render() {
-        console.log(this.props.flightsList);
-
-        return (
-            <div className="board">
-                <BoardBtns 
-                    arrivalClick={this.props.arrivalClick}
-                    departureClick={this.props.departureClick}
-                    handleChangeDepartures={this.handleChangeDepartures}
-                    handleChangeArrivals={this.handleChangeArrivals}
-                />
-                    <div className="board__table">
-                        <TableDescrptn />
-                        <TableList 
-                            flightsList={this.props.flightsList}
-                        />
-                    </div>  
-            </div>
-        );
-    }
+  return (
+    <div className="board">
+      <BoardBtns
+        arrivalClick={arrivalClick}
+        departureClick={departureClick}
+        handleChangeDepartures={getDepartureList}
+        handleChangeArrivals={getArrivalList}
+      />
+      <div className="board__table">
+        <TableDescrptn />
+        <TableList flightsList={flightsList} />
+      </div>
+    </div>
+  );
 };
 
+Board.propTypes = {
+  flightsList: PropTypes.arrayOf(PropTypes.shape()),
+  arrivalClick: PropTypes.bool,
+  departureClick: PropTypes.bool,
+  getDepartureList: PropTypes.func.isRequired,
+  getArrivalList: PropTypes.func.isRequired,
+};
 
 const mapDispatch = {
-    getArrivalList: boardActions.getArrivalList,
-    getDepartureList: boardActions.getDepartureList,
+  getArrivalList: boardActions.getArrivalList,
+  getDepartureList: boardActions.getDepartureList,
 };
 
-const mapState = state => {
-    return {
-        flightsList: boardSelectors.filteredFlightsSelector(state),
-        arrivalClick: boardSelectors.boardArrivalClick(state),
-        departureClick: boardSelectors.boardDepartureClick(state),
-    }
-}
+const mapState = (state) => {
+  return {
+    flightsList: boardSelectors.filteredFlightsSelector(state),
+    arrivalClick: boardSelectors.boardArrivalClick(state),
+    departureClick: boardSelectors.boardDepartureClick(state),
+  };
+};
 
 export default connect(mapState, mapDispatch)(Board);

@@ -4,7 +4,7 @@
 }
 
 body {
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 
 .main {
@@ -38,7 +38,7 @@ body {
     border: none;
     font-weight: 700;
     color: rgb(100, 100, 100);
-    box-shadow: 0px 0px 10px -2px rgba(128,128,128,1);
+    box-shadow: 0px 0px 10px -2px rgba(128, 128, 128, 1);
     cursor: pointer;
   }
 
@@ -49,7 +49,7 @@ body {
     border: none;
     border-radius: 0 50px 0 0;
     background-color: rgb(120, 160, 250);
-    box-shadow: 0px 0px 10px -2px rgba(128,128,128,1);
+    box-shadow: 0px 0px 10px -2px rgba(128, 128, 128, 1);
     text-transform: uppercase;
     font-weight: 700;
     color: rgb(255, 255, 255);
@@ -64,7 +64,7 @@ body {
   align-items: center;
   margin: auto;
   border-radius: 50px 50px 0 0;
-  box-shadow: 0px 0px 10px -2px rgba(128,128,128,1);
+  box-shadow: 0px 0px 10px -2px rgba(128, 128, 128, 1);
 
   &__table {
     font-size: 14px;
@@ -75,7 +75,7 @@ body {
   }
 }
 
-.description{
+.description {
   height: 4em;
   background: #fff;
   padding: 5% 0;
@@ -83,26 +83,26 @@ body {
   font-weight: 700;
   color: rgb(112, 112, 112);
   text-align: center;
-  
-  &__terminal{
+
+  &__terminal {
     height: 10%;
     width: 10%;
     margin-left: 2%;
   }
 
-  &__time{
+  &__time {
     width: 20%;
   }
 
-  &__destination{
+  &__destination {
     width: 20%;
   }
 
-  &__status{
+  &__status {
     width: 20%;
   }
 
-  &__airline{
+  &__airline {
     justify-content: center;
     display: flex;
     width: 20%;
@@ -110,7 +110,7 @@ body {
     margin-right: 10%;
   }
 
-  &__flight{
+  &__flight {
     width: 10%;
     margin-right: 10%;
   }
@@ -133,29 +133,29 @@ body {
   border-radius: 50px 50px 0 0;
 }
 
-.board-btn{
-    margin: auto 0;
-    width: 50%;
-    height: 4em;
-    border: none;
-    background-color: rgb(120, 160, 250);
-    text-transform: uppercase;
-    font-weight: 700;
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    &__right{
-      border-radius: 0 50px 0 0;
-    }
-    &__left{
-      border-radius: 50px 0 0 0;
-    }
+.board-btn {
+  margin: auto 0;
+  width: 50%;
+  height: 4em;
+  border: none;
+  background-color: rgb(120, 160, 250);
+  text-transform: uppercase;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  &__right {
+    border-radius: 0 50px 0 0;
   }
+  &__left {
+    border-radius: 50px 0 0 0;
+  }
+}
 
-  .clicked {
-    color: rgb(120, 160, 250);
-    background-color: rgb(255, 255, 255);
-    border-radius: 50px 50px 0 0;
-  }
+.clicked {
+  color: rgb(120, 160, 250);
+  background-color: rgb(255, 255, 255);
+  border-radius: 50px 50px 0 0;
+}
 
 .table-list {
   margin: 0;
@@ -164,11 +164,11 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
+
   &__item {
-  height: 4em;
-  background: #fff;
-  display: flex;
+    height: 4em;
+    background: #fff;
+    display: flex;
     align-items: center;
   }
 }
@@ -182,4 +182,3 @@ body {
 li:nth-child(even) {
   background-color: rgba(90, 130, 160, 0.007);
 }
-
