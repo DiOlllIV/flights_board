@@ -1,7 +1,7 @@
 {
   "name": "flights-board",
   "version": "1.0.0",
-  "main": "webpack.config.js",
+  "main": "index.jsx",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --wath",
