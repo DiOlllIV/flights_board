@@ -16,7 +16,7 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.<br />
 
-### `npm run lint:fix
+### `npm run lint:fix`
 
 Run ESLint to statically analyzes code to quickly find problems in `src` folder.
 Many problems ESLint finds can be automatically fixed. ESLint fixes are syntax-aware so you won't experience errors introduced by traditional find-and-replace algorithms.
