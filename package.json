@@ -49,16 +49,12 @@
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "redux": "^4.0.5",
-    "redux-localstorage": "^0.4.1",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DiOlllIV/flights_board.git"
-  },
-  "bugs": {
-    "url": "https://github.com/DiOlllIV/flights_board/issues"
   },
   "homepage": "https://github.com/DiOlllIV/flights_board#readme",
   "description": ""
