@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import PropTypes from "prop-types";
 import Search from "./Search";
 import Board from "./Board";
@@ -8,8 +9,14 @@ import * as boardActions from "../board.actions";
 const Main = ({ setFilterText }) => {
   return (
     <main className="main">
-      <Search setFilterText={setFilterText} />
-      <Board />
+      <BrowserRouter>
+        <Search setFilterText={setFilterText} />
+        <Switch>
+          <Route path="/:direction?/:flight?">
+            <Board />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </main>
   );
 };

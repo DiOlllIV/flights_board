@@ -1,0 +1,13 @@
+@import "main.scss";
+@import "search.scss";
+@import "board.scss";
+@import "description.scss";
+
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+}

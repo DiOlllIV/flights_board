@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Switch, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import * as boardActions from "../board.actions";
@@ -14,10 +15,15 @@ const Board = ({
   getArrivalList,
   getDepartureList,
 }) => {
+  const location = useLocation();
+
   useEffect(() => {
-    getArrivalList();
+    if (location.pathname === "/arrivals") getArrivalList();
+
+    if (location.pathname === "/departures") getDepartureList();
   }, []);
 
+  console.log(location);
   return (
     <div className="board">
       <BoardBtns
@@ -28,7 +34,9 @@ const Board = ({
       />
       <div className="board__table">
         <TableDescrptn />
-        <TableList flightsList={flightsList} />
+        <Switch>
+          <TableList flightsList={flightsList} />
+        </Switch>
       </div>
     </div>
   );

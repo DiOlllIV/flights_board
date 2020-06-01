@@ -1,0 +1,43 @@
+.search {
+  display: flex;
+  flex-direction: column;
+  margin: auto 15%;
+
+  &__title {
+    margin: 10% 0 10%;
+    font-weight: 300;
+    font-size: 64px;
+    text-transform: uppercase;
+  }
+
+  &__box {
+    display: flex;
+    width: 100%;
+  }
+
+  &__input {
+    margin: 0 auto 10%;
+    height: 4em;
+    width: 100%;
+    text-align: center;
+    border: none;
+    font-weight: 700;
+    color: rgb(100, 100, 100);
+    box-shadow: 0px 0px 10px -2px rgba(128, 128, 128, 1);
+    cursor: pointer;
+  }
+
+  &__btn {
+    margin: 0 auto 0;
+    width: 30%;
+    height: 4em;
+    border: none;
+    border-radius: 0 50px 0 0;
+    background-color: rgb(120, 160, 250);
+    box-shadow: 0px 0px 10px -2px rgba(128, 128, 128, 1);
+    text-transform: uppercase;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+  }
+}
