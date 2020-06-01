@@ -23,7 +23,6 @@ const Board = ({
     if (location.pathname === "/departures") getDepartureList();
   }, []);
 
-  console.log(location);
   return (
     <div className="board">
       <BoardBtns
